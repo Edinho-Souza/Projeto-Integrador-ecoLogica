@@ -1,2 +1,2 @@
 # Projeto-Integrador-Jovem-Programador-Senac
-Repositório do PI
+Repositório do PI - ecoLogica
