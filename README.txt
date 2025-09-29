@@ -6,3 +6,5 @@ ecoLogica/
 │── .gitignore
 │── README.md
 │── docker-compose.yml
+
+
