@@ -1,0 +1,807 @@
+:root {
+  --page-padding: 50px;
+}
+
+/* Fonte padrão */
+body {
+  font-family: 'Open Sans', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: #4f4f4f;
+  background-color: #fefcf0;
+}
+
+/* Barra bege */
+.top-bar {
+  background-color: #fefcf0;
+  color: #2c5836;
+  text-align: center;
+  padding: 5px 0;
+  font-weight: 600;
+}
+
+/* Barra verde musgo */
+.main-bar {
+  background-color: #2c5836;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0 50px;
+  gap: 4px;
+  height: 46px;
+  position: relative;
+}
+
+/* Botões laranja */
+.btn-custom {
+  background-color: #e87a00;
+  color: #fefcf0;
+  border: none;
+  border-radius: 0;
+  padding: 10px 15px;
+  font-weight: normal;
+  height: 100%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.btn-custom:hover {
+  background-color: #cf6b00;
+  color: #fefcf0;
+}
+
+/* Barra de pesquisa */
+.search-box {
+  width: 0;
+  height: 35px;
+  background-color: #fefcf0;
+  overflow: hidden;
+  transition: width 0.3s;
+  display: flex;
+  align-items: center;
+  margin-right: 0px;
+  border-radius: 10px;
+}
+
+.search-box input {
+  border: 0px;
+  border-radius: 4px;
+  padding: 5px 10px;
+  width: 100%;
+  outline: none;
+  font-size: 14px;
+  background-color: #fefcf0;
+}
+
+/* Barra secundária */
+.secondary-bar {
+  background-color: #488f58;
+  padding: 0 50px;
+  height: 46px;
+  z-index: 15;
+}
+
+/* Navbar toggler */
+.navbar-toggler {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.navbar-toggler svg {
+  fill: #fefcf0;
+}
+
+/* Menu colapsável */
+.secondary-bar .navbar-collapse {
+  position: absolute;
+  top: 46px;
+  right: 0;
+  background-color: #488f58;
+  width: 200px;
+  z-index: 1050;
+  padding: 10px;
+}
+
+/* Menu mobile */
+.secondary-bar .navbar-nav button {
+  display: block;
+  width: 100%;
+  margin-bottom: 5px;
+  color: #fefcf0;
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+}
+
+.secondary-bar .navbar-nav button:hover {
+  text-decoration: underline;
+}
+
+/* Desktop */
+@media(min-width: 992px) {
+  .secondary-bar .navbar-collapse {
+    position: static;
+    width: auto;
+    background: none;
+    padding: 0;
+  }
+
+  .secondary-bar .navbar-nav {
+    flex-direction: row;
+    gap: 20px;
+  }
+
+  .secondary-bar .navbar-nav button {
+    display: inline-block;
+    width: auto;
+    margin: 0;
+    text-align: center;
+  }
+}
+
+
+
+/* Banner */
+.carousel-caption {
+  bottom: auto;
+  top: 150px;
+  left: 200px;
+  text-align: left;
+  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn-banner {
+  background-color: #e87a00;
+  color: #fefcf0;
+  border: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn-banner:hover {
+  background-color: #cf6b00;
+  color: #fefcf0;
+}
+
+/* Conteúdo interno */
+.content-wrapper {
+  max-width: 1350px;
+  margin: 50px auto;
+  padding: 0 50px;
+  box-sizing: border-box;
+  margin-bottom: 5px;
+}
+
+/* Seção Missão, Objetivos e Benefícios */
+.eco-box {
+  background-color: #f4f1d2;
+  padding: 60px 0;
+  width: 100%;
+}
+
+.eco-box-content {
+  max-width: 1350px;
+  margin: 0 auto;
+  padding: 0 50px;
+}
+
+.eco-block {
+  margin-bottom: 40px;
+}
+
+.eco-block h2 {
+  color: #4f4f4f;
+  font-size: 28px;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+.eco-list {
+  list-style-type: disc;
+  padding-left: 30px;
+}
+
+.eco-list li {
+  margin-bottom: 10px;
+  font-size: 16px;
+  color: #4f4f4f;
+}
+
+/* Seção de campanhas */
+.campaigns-section {
+  margin: 60px auto;
+  max-width: 1300px;
+  padding: 0 20px;
+}
+
+
+/* Card da campanha */
+.campaign-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  background: #fefcf0;
+}
+
+/* Imagem da campanha */
+.campaign-image {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.campaign-image img {
+  width: 100%;
+  border-radius: 8px 8px 0 0;
+  display: block;
+}
+
+/* Retângulo verde sobreposto */
+.campaign-title {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #2c5836;
+  color: #fefcf0;
+  padding: 8px 16px;
+  font-weight: bold;
+  border-radius: 6px 6px 0 0;
+  font-size: 1.2rem;
+  white-space: nowrap;
+  display: inline-block;
+}
+
+/* Retângulo bege */
+.campaign-description {
+  background-color: #f4f1d2;
+  width: 100%;
+  padding: 20px;
+  border-radius: 0 0 8px 8px;
+  position: relative;
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 180px;
+}
+
+/* Botão laranja */
+.btn-campaign {
+  position: absolute;
+  background-color: #e87a00;
+  color: #fefcf0;
+  font-weight: bold;
+  padding: 8px 20px;
+  border-radius: 6px;
+  text-decoration: none;
+  margin-top: auto;
+  align-self: center;
+  bottom: 20px;
+}
+
+.btn-campaign:hover {
+  background-color: #cf6900;
+  color: #fefcf0;
+}
+
+/* Ranking de Membros */
+.ranking-section {
+  position: relative; /* permite que o fundo fique atrás do conteúdo */
+  width: 100%;
+    color: #fefcf0;
+}
+
+.ranking-background {
+  background-color: #488f58;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 400px; /* aqui você define a altura do retângulo independente do conteúdo */
+  z-index: 1;
+}
+
+.ranking-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  z-index: 2; /* acima do fundo */
+  flex-wrap: wrap;
+  padding-top: 40px; /* opcional: espaço interno acima do conteúdo */
+  padding-bottom: 40px; /* opcional: espaço interno abaixo do conteúdo */
+}
+
+
+.ranking-image img {
+  width: 350px;
+  height: 350px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.ranking-info {
+  min-width: 300px;
+}
+
+.ranking-info h2 {
+  margin-bottom: 20px;
+}
+
+.ranking-list {
+  list-style-position: inside;
+  padding-left: 0;
+  margin-bottom: 20px;
+}
+
+.ranking-list li {
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.ranking-highlights h4 {
+  margin-bottom: 10px;
+}
+
+.ranking-highlights p {
+  margin: 2px 0;
+}
+
+.overlay-wrapper {
+  width: 100%;
+  position: relative;
+  top: -110px; /* sobe para ficar atrás do ranking */
+  z-index: 1; /* abaixo do ranking */
+}
+
+.overlay-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  background-color: #488f58; /* opcional: se quiser preencher áreas transparentes */
+
+
+}
+
+
+/* Seção Notícias e Newsletter */
+.news-newsletter-section {
+  width: 100%;
+  padding: 0 20px;
+  background-color: #fefcf0; /* fundo da seção */
+  z-index: 2;
+  top: -70px;
+  position: relative;
+}
+
+.news-newsletter-container {
+  max-width: 860px;
+  margin: 0 auto;
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+  justify-content: center; /* centraliza os retângulos */
+}
+
+/* Estilo dos retângulos */
+.news-box,
+.newsletter-box {
+  background-color: #f4f1d2;
+  padding: 30px 40px 30px 40px;
+  border-radius: 8px;
+  flex: 1 1 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: top; /* centraliza verticalmente */
+  align-items: center;     /* centraliza horizontalmente */
+  text-align: left;      /* centraliza texto */
+  gap: 20px;               /* espaçamento entre elementos */
+  min-height: 280px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Títulos */
+.news-box h2,
+.newsletter-box h2 {
+  font-size: 24px;
+  color: #4f4f4f;
+  margin-bottom: 0;
+}
+
+/* Texto */
+.news-box p,
+.newsletter-box p {
+  font-size: 16px;
+  color: #4f4f4f;
+  margin: 0;
+}
+
+/* Botões laranja */
+.btn-box {
+  position: absolute;
+  background-color: #e87a00;
+  color: #fefcf0;
+  font-weight: bold;
+  padding: 8px 20px;
+  border-radius: 6px;
+  text-decoration: none;
+  margin-top: auto;
+  align-self: center;
+  bottom: 25px;
+}
+
+.btn-box:hover {
+  background-color: #cf6b00;
+  color: #fefcf0;
+}
+
+/* Formulário da Newsletter */
+.newsletter-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 125%; /* ocupa toda a largura do retângulo */
+  align-items: center; /* centraliza os elementos do form */
+  margin-top: 15px;
+}
+
+.newsletter-form input[type="email"] {
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  width: 80%; /* maior largura */
+  box-sizing: border-box;
+  margin-top: -27px;
+}
+
+.newsletter-form button {
+  padding: 10px 20px;
+  border-radius: 6px;
+  border: none;
+  background-color: #e87a00;
+  color: #fefcf0;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.newsletter-form button:hover {
+  background-color: #cf6b00;
+}
+
+/* Imagem full width */
+.fullwidth-image-section {
+  width: 100%;
+  margin: -10px 0 0 0;
+  padding: 0;
+}
+
+.fullwidth-image-section img {
+  width: 100%;       /* ocupa toda a largura da tela */
+  height: auto;      /* mantém a proporção */
+  display: block;    /* remove espaços brancos embaixo da imagem */
+}
+
+
+/* Rodapé */
+footer {
+  background-color: #488f58;
+  color: white;
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+/* Parte superior do rodapé */
+.footer-top {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 2rem;
+  gap: 2rem;
+}
+
+/* Logo */
+.footer-logo {
+  flex: 1 1 150px;
+  max-width: 150px;
+}
+
+.footer-logo img {
+  width: 75%;
+  height: auto;
+}
+
+/* Colunas de links */
+.footer-links {
+  display: flex;
+  flex: 2 1 400px;
+  gap: 2rem;
+  justify-content: flex-start;
+}
+
+.footer-column {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.footer-column h4 {
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
+
+.footer-column a {
+  color: white;
+  text-decoration: none;
+  margin-bottom: 0.3rem;
+  font-size: 0.9rem;
+}
+
+.footer-column a:hover {
+  text-decoration: underline;
+}
+
+/* Contato */
+.footer-contact {
+  flex: 1 1 200px;
+  text-align: left;
+}
+
+.footer-contact h4 {
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
+
+.footer-contact p {
+  margin: 0.3rem 0;
+  font-size: 0.9rem;
+}
+
+.footer-bottom {
+  background-color: #2c5836;
+  padding: 1rem 2rem;
+  font-size: 0.85rem;
+  position: relative; /* necessário para o posicionamento absoluto dos ícones */
+}
+
+/* Container dos ícones */
+.footer-social {
+  position: absolute;
+  right: 10rem;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  gap: 0.5rem;
+}
+
+/* Estilo das imagens dos ícones */
+.footer-social img {
+  width: 24px; /* tamanho do ícone */
+  height: 24px;
+}
+
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .footer-top {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-links, .footer-contact {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .footer-column {
+    align-items: center;
+  }
+}
+
+#back-to-top {
+  position: fixed;       /* Fixo na tela */
+  right: 2rem;           /* Distância da borda direita */
+  bottom: 2rem;          /* Distância da borda inferior */
+  z-index: 1000;         /* Acima de outros elementos */
+  border: none;          /* Sem borda */
+  background: none;      /* Sem fundo */
+  cursor: pointer;       /* Cursor de clique */
+  display: none;         /* Começa escondido */
+  padding: 0;            /* Remove padding */
+  transition: transform 0.2s;
+}
+
+/* Hover: dá leve efeito ao passar o mouse */
+#back-to-top:hover {
+  transform: scale(1.1);
+}
+
+/* Ajusta tamanho do SVG dentro do botão */
+#back-to-top svg {
+  width: 40px;
+  height: 40px;
+  fill: #a8d08d; /* Cor do ícone */
+}
+
+
+
+/* Modal geral */
+.auth-modal {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0,0,0,0.6);
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+/* Conteúdo modal dividido */
+.split-modal {
+  display: flex;
+  width: 90%;
+  max-width: 700px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+/* Lado esquerdo: imagem */
+.modal-left {
+  flex: 1;
+  background-color: #4a5a2a; /* verde musgo */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-left img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+}
+
+/* Lado direito: formulário */
+.modal-right {
+  flex: 1;
+  background-color: #f5edd6; /* bege */
+  padding: 30px 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 15px;
+  position: relative;
+}
+
+/* Close button */
+.close-modal {
+  position: absolute;
+  top: 10px; right: 15px;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+  color: #2c5836;
+}
+
+/* Abas */
+.auth-tabs {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.tab-btn {
+  flex: 1;
+  padding: 10px 0;
+  border: none;
+  background-color: #e3e3e3;
+  color: #2c5836;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background-color 0.2s;
+}
+
+.tab-btn.active {
+  background-color: #488f58;
+  color: #fefcf0;
+}
+
+/* Formulários */
+.modal-form {
+  display: none;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.modal-form.active {
+  display: flex;
+}
+
+.modal-form input {
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.modal-form button {
+  background-color: #e87a00;
+  color: #fefcf0;
+  border: none;
+  padding: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.2s;
+}
+
+.modal-form button:hover {
+  background-color: #cf6b00;
+}
+
+/* Checkbox e link */
+.form-extra {
+  display: flex;
+  justify-content: space-between; /* mantém o link à direita */
+  align-items: center;
+  font-size: 14px;
+  gap: 10px; /* espaço mínimo entre checkbox+texto e link */
+  flex-wrap: nowrap; /* evita quebra de linha */
+}
+
+.form-extra label {
+  display: flex;
+  align-items: center; /* alinha checkbox e texto verticalmente */
+  gap: 5px; /* espaço entre checkbox e texto */
+  white-space: nowrap; /* evita quebra de linha do texto */
+  cursor: pointer;
+}
+
+.form-extra a {
+  white-space: nowrap; /* impede quebra do "Recuperar senha" */
+}
+
+
+
+.form-extra input[type="checkbox"] {
+  margin-right: 5px;
+}
+
+.recover-link {
+  color: #488f58;
+  text-decoration: none;
+}
+
+.recover-link:hover {
+  text-decoration: underline;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .split-modal {
+    flex-direction: column;
+  }
+  .modal-left, .modal-right {
+    width: 100%;
+  }
+  .modal-left {
+    height: 200px;
+  }
+}
