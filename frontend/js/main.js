@@ -58,14 +58,14 @@ document.addEventListener("DOMContentLoaded", function () {
       backToTopButton.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
     }
 
- // --- Ativa o Menu Offcanvas do Bootstrap (Mobile) ---
+    // --- Ativa o Menu Offcanvas do Bootstrap (Mobile) ---
     const offcanvasElement = document.getElementById('offcanvasMenu');
     if (offcanvasElement) {
-        // Esta linha "apresenta" o menu que acabamos de carregar
-        // ao JavaScript do Bootstrap, ativando suas funcionalidades.
-        new bootstrap.Offcanvas(offcanvasElement);
+      // Esta linha "apresenta" o menu que acabamos de carregar
+      // ao JavaScript do Bootstrap, ativando suas funcionalidades.
+      new bootstrap.Offcanvas(offcanvasElement);
     }
-};
+  };
 
   // 3. Ordem de montagem
   const todasAsPartes = [
@@ -88,13 +88,78 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-// --- Ativa o Carrossel de Parceiros ---
-    const partnersCarouselElement = document.getElementById('partnersCarousel');
-    if (partnersCarouselElement) {
-        // Esta linha "apresenta" o carrossel ao JavaScript do Bootstrap,
-        // ativando as setas e a animação de deslize.
-        new bootstrap.Carousel(partnersCarouselElement, {
-            interval: false, // Impede o carrossel de girar sozinho
-            wrap: true       // Permite que o carrossel volte ao início depois do último item
-        });
+// --- LÓGICA DO CARROSSEL DE PARCEIROS ITEM-POR-ITEM E INFINITO ---
+document.addEventListener('DOMContentLoaded', () => {
+  const wrapper = document.querySelector('.logo-slider-wrapper');
+  if (!wrapper) return;
+
+  const track = wrapper.querySelector('.logo-track');
+  const prevBtn = wrapper.querySelector('#logo-prev-btn');
+  const nextBtn = wrapper.querySelector('#logo-next-btn');
+  let originalItems = Array.from(track.children);
+
+  if (originalItems.length === 0) return; // Não faz nada se não houver logos
+
+  const itemWidth = 200; // Largura de cada logo (deve ser a mesma do CSS)
+  const itemsToClone = Math.ceil(wrapper.offsetWidth / itemWidth); // Clona a quantidade de itens visíveis
+
+  // 1. Clonar itens para criar o efeito infinito
+  // Clona os últimos itens e coloca no começo
+  for (let i = 0; i < itemsToClone; i++) {
+    const index = (originalItems.length - 1 - i + originalItems.length) % originalItems.length;
+    const clone = originalItems[index].cloneNode(true);
+    track.insertBefore(clone, track.firstChild);
+  }
+  // Clona os primeiros itens e coloca no final
+  for (let i = 0; i < itemsToClone; i++) {
+    const clone = originalItems[i].cloneNode(true);
+    track.appendChild(clone);
+  }
+
+  // 2. Atualizar a lista de itens e definir a posição inicial
+  let allItems = Array.from(track.children);
+  track.style.width = `${allItems.length * itemWidth}px`;
+
+  let currentIndex = itemsToClone; // Começa nos primeiros itens "reais"
+  let isTransitioning = false;
+
+  function setPosition(instant = false) {
+    if (instant) {
+      track.style.transition = 'none';
+    } else {
+      track.style.transition = 'transform 0.5s ease-in-out';
     }
+    const offset = -currentIndex * itemWidth;
+    track.style.transform = `translateX(${offset}px)`;
+  }
+
+  // Posição inicial (invisível para o usuário)
+  setPosition(true);
+
+  // 3. Funções dos botões
+  function move(direction) {
+    if (isTransitioning) return;
+    isTransitioning = true;
+
+    direction === 'next' ? currentIndex++ : currentIndex--;
+    setPosition();
+  }
+
+  nextBtn.addEventListener('click', () => move('next'));
+  prevBtn.addEventListener('click', () => move('prev'));
+
+  // 4. A Mágica do Loop
+  track.addEventListener('transitionend', () => {
+    // Se chegamos nos clones do final, salta de volta para o começo
+    if (currentIndex >= originalItems.length + itemsToClone) {
+      currentIndex = itemsToClone;
+      setPosition(true);
+    }
+    // Se chegamos nos clones do começo, salta de volta para o final
+    if (currentIndex < itemsToClone) {
+      currentIndex = originalItems.length + itemsToClone - 1;
+      setPosition(true);
+    }
+    isTransitioning = false;
+  });
+});

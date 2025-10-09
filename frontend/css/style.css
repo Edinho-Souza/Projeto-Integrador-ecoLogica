@@ -69,7 +69,8 @@ body {
 
 /* Menu links como botão - cor bege */
 .navbar-nav .nav-link.btn {
-  color: #fefcf0;               /* cor do texto, ajuste se quiser */
+  color: #fefcf0;
+  /* cor do texto, ajuste se quiser */
 }
 
 /* Hover para dar efeito ao passar o mouse */
@@ -416,7 +417,7 @@ body {
 
 .content-wrapper h1 {
   font-size: 29px;
-    font-weight: bold !important;
+  font-weight: bold !important;
 
 }
 
@@ -983,4 +984,110 @@ footer {
     margin: 0;
     text-align: center;
   }
+}
+
+/* ==========================================================================
+   5.1 SEÇÃO DE PARCEIROS (VERSÃO FINAL: ITEM-POR-ITEM)
+   ========================================================================== */
+.partners-section {
+  padding: 50px 0 70px 0;
+  background-color: #fefcf0;
+}
+
+.partners-title {
+  font-size: 29px;
+  font-weight: bold !important;
+  color: #4f4f4f;
+  margin-bottom: 40px;
+}
+
+.logo-slider-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-slider {
+  overflow: hidden;
+  position: relative;
+  width: 90%;
+}
+
+.logo-track {
+  display: flex;
+  /* A LARGURA SERÁ CALCULADA E INSERIDA PELO JAVASCRIPT */
+  transition: transform 0.5s ease-in-out;
+}
+
+.logo-item {
+  width: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.logo-item img {
+  max-width: 150px;
+  height: 80px;
+  object-fit: contain;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.logo-item img:hover {
+  opacity: 1;
+}
+
+.slider-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  background-color: #2c5836;
+  color: #fefcf0;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease;
+}
+
+.slider-arrow:hover {
+  background-color: #e87a00;
+}
+
+.slider-arrow.prev {
+  left: 10px;
+}
+
+.slider-arrow.next {
+  right: 10px;
+}
+
+/* Em telas de celular (até 767.98px de largura) */
+@media (max-width: 767.98px) {
+
+  /* Ajusta a "janela" do carrossel para ter a largura de 1 item */
+  .logo-slider {
+    width: 200px;
+  }
+
+  /* --- NOVO: Aproxima as setas do logo no mobile --- */
+  .slider-arrow.prev {
+    /* O valor padrão era 10px. Aumente para mover para a direita. */
+    left: 40px; 
+  }
+
+  .slider-arrow.next {
+    /* O valor padrão era 10px. Aumente para mover para a esquerda. */
+    right: 40px;
+  }
+
 }
