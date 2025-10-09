@@ -1,8 +1,13 @@
+/* ==========================================================================
+   1. CONFIGURAÇÕES GLOBAIS E ESTILOS BASE
+   ========================================================================== */
+
 :root {
   --page-padding: 50px;
+  --ranking-height-desktop: 400px;
 }
 
-/* Fonte padrão */
+/* Fonte padrão e reset básico */
 body {
   font-family: 'Open Sans', sans-serif;
   margin: 0;
@@ -12,7 +17,12 @@ body {
   background-color: #fefcf0;
 }
 
-/* Barra bege */
+
+/* ==========================================================================
+   2. CABEÇALHO E NAVEGAÇÃO
+   ========================================================================== */
+
+/* --- Barra Superior (Bege) --- */
 .top-bar {
   background-color: #fefcf0;
   color: #2c5836;
@@ -21,7 +31,7 @@ body {
   font-weight: 600;
 }
 
-/* Barra verde musgo */
+/* --- Barra Principal (Verde Escuro) --- */
 .main-bar {
   background-color: #2c5836;
   display: flex;
@@ -33,51 +43,7 @@ body {
   position: relative;
 }
 
-/* Botões laranja */
-.btn-custom {
-  background-color: #e87a00;
-  color: #fefcf0;
-  border: none;
-  border-radius: 0;
-  padding: 10px 15px;
-  font-weight: normal;
-  height: 100%;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1;
-}
-
-.btn-custom:hover {
-  background-color: #cf6b00;
-  color: #fefcf0;
-}
-
-/* Barra de pesquisa */
-.search-box {
-  width: 0;
-  height: 35px;
-  background-color: #fefcf0;
-  overflow: hidden;
-  transition: width 0.3s;
-  display: flex;
-  align-items: center;
-  margin-right: 0px;
-  border-radius: 10px;
-}
-
-.search-box input {
-  border: 0px;
-  border-radius: 4px;
-  padding: 5px 10px;
-  width: 100%;
-  outline: none;
-  font-size: 14px;
-  background-color: #fefcf0;
-}
-
-/* Barra secundária */
+/* --- Barra Secundária (Verde Claro) --- */
 .secondary-bar {
   background-color: #488f58;
   padding: 0 50px;
@@ -85,29 +51,7 @@ body {
   z-index: 15;
 }
 
-/* Navbar toggler */
-.navbar-toggler {
-  border: none;
-  background: none;
-  cursor: pointer;
-}
-
-.navbar-toggler svg {
-  fill: #fefcf0;
-}
-
-/* Menu colapsável */
-.secondary-bar .navbar-collapse {
-  position: absolute;
-  top: 46px;
-  right: 0;
-  background-color: #488f58;
-  width: 200px;
-  z-index: 1050;
-  padding: 10px;
-}
-
-/* Menu mobile */
+/* --- Links da Barra Secundária --- */
 .secondary-bar .navbar-nav button {
   display: block;
   width: 100%;
@@ -123,547 +67,187 @@ body {
   text-decoration: underline;
 }
 
-/* Desktop */
-@media(min-width: 992px) {
-  .secondary-bar .navbar-collapse {
-    position: static;
-    width: auto;
-    background: none;
-    padding: 0;
-  }
+/* Menu links como botão - cor bege */
+.navbar-nav .nav-link.btn {
+  color: #fefcf0;               /* cor do texto, ajuste se quiser */
+}
 
-  .secondary-bar .navbar-nav {
-    flex-direction: row;
-    gap: 20px;
-  }
-
-  .secondary-bar .navbar-nav button {
-    display: inline-block;
-    width: auto;
-    margin: 0;
-    text-align: center;
-  }
+/* Hover para dar efeito ao passar o mouse */
+.navbar-nav .nav-link.btn:hover {
+  color: #e87a00;
 }
 
 
-
-/* Banner */
-.carousel-caption {
-  bottom: auto;
-  top: 150px;
-  left: 200px;
-  text-align: left;
-  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
-
-.btn-banner {
-  background-color: #e87a00;
-  color: #fefcf0;
-  border: none;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
-
-.btn-banner:hover {
-  background-color: #cf6b00;
-  color: #fefcf0;
-}
-
-/* Conteúdo interno */
-.content-wrapper {
-  max-width: 1350px;
-  margin: 50px auto;
-  padding: 0 50px;
-  box-sizing: border-box;
-  margin-bottom: 5px;
-}
-
-/* Seção Missão, Objetivos e Benefícios */
-.eco-box {
-  background-color: #f4f1d2;
-  padding: 60px 0;
-  width: 100%;
-}
-
-.eco-box-content {
-  max-width: 1350px;
-  margin: 0 auto;
-  padding: 0 50px;
-}
-
-.eco-block {
-  margin-bottom: 40px;
-}
-
-.eco-block h2 {
-  color: #4f4f4f;
-  font-size: 28px;
-  margin-bottom: 15px;
-  font-weight: bold;
-}
-
-.eco-list {
-  list-style-type: disc;
-  padding-left: 30px;
-}
-
-.eco-list li {
-  margin-bottom: 10px;
-  font-size: 16px;
-  color: #4f4f4f;
-}
-
-/* Seção de campanhas */
-.campaigns-section {
-  margin: 60px auto;
-  max-width: 1300px;
-  padding: 0 20px;
-}
-
-
-/* Card da campanha */
-.campaign-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border-radius: 8px;
+/* --- Barra de Pesquisa (Desktop) --- */
+.search-box {
+  width: 0;
+  height: 35px;
+  background-color: #fefcf0;
   overflow: hidden;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  background: #fefcf0;
-}
-
-/* Imagem da campanha */
-.campaign-image {
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-}
-
-.campaign-image img {
-  width: 100%;
-  border-radius: 8px 8px 0 0;
-  display: block;
-}
-
-/* Retângulo verde sobreposto */
-.campaign-title {
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: #2c5836;
-  color: #fefcf0;
-  padding: 8px 16px;
-  font-weight: bold;
-  border-radius: 6px 6px 0 0;
-  font-size: 1.2rem;
-  white-space: nowrap;
-  display: inline-block;
-}
-
-/* Retângulo bege */
-.campaign-description {
-  background-color: #f4f1d2;
-  width: 100%;
-  padding: 20px;
-  border-radius: 0 0 8px 8px;
-  position: relative;
-  text-align: center;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  min-height: 180px;
-}
-
-/* Botão laranja */
-.btn-campaign {
-  position: absolute;
-  background-color: #e87a00;
-  color: #fefcf0;
-  font-weight: bold;
-  padding: 8px 20px;
-  border-radius: 6px;
-  text-decoration: none;
-  margin-top: auto;
-  align-self: center;
-  bottom: 20px;
-}
-
-.btn-campaign:hover {
-  background-color: #cf6900;
-  color: #fefcf0;
-}
-
-/* Ranking de Membros */
-.ranking-section {
-  position: relative; /* permite que o fundo fique atrás do conteúdo */
-  width: 100%;
-    color: #fefcf0;
-}
-
-.ranking-background {
-  background-color: #488f58;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 400px; /* aqui você define a altura do retângulo independente do conteúdo */
-  z-index: 1;
-}
-
-.ranking-container {
-  position: relative;
-  display: flex;
+  transition: width 0.3s;
   align-items: center;
-  justify-content: center;
-  gap: 40px;
-  z-index: 2; /* acima do fundo */
-  flex-wrap: wrap;
-  padding-top: 40px; /* opcional: espaço interno acima do conteúdo */
-  padding-bottom: 40px; /* opcional: espaço interno abaixo do conteúdo */
+  margin-right: 0px;
+  border-radius: 10px;
+  display: none;
 }
 
-
-.ranking-image img {
-  width: 350px;
-  height: 350px;
-  object-fit: cover;
-  border-radius: 8px;
-}
-
-.ranking-info {
-  min-width: 300px;
-}
-
-.ranking-info h2 {
-  margin-bottom: 20px;
-}
-
-.ranking-list {
-  list-style-position: inside;
-  padding-left: 0;
-  margin-bottom: 20px;
-}
-
-.ranking-list li {
-  margin-bottom: 10px;
-  font-weight: bold;
-}
-
-.ranking-highlights h4 {
-  margin-bottom: 10px;
-}
-
-.ranking-highlights p {
-  margin: 2px 0;
-}
-
-.overlay-wrapper {
+.search-box input {
+  border: 0px;
+  border-radius: 4px;
+  padding: 5px 10px;
   width: 100%;
-  position: relative;
-  top: -110px; /* sobe para ficar atrás do ranking */
-  z-index: 1; /* abaixo do ranking */
+  outline: none;
+  font-size: 14px;
+  background-color: #fefcf0;
 }
 
-.overlay-image {
-  width: 100%;
-  height: auto;
-  display: block;
-  background-color: #488f58; /* opcional: se quiser preencher áreas transparentes */
-
-
-}
-
-
-/* Seção Notícias e Newsletter */
-.news-newsletter-section {
-  width: 100%;
-  padding: 0 20px;
-  background-color: #fefcf0; /* fundo da seção */
-  z-index: 2;
-  top: -70px;
-  position: relative;
-}
-
-.news-newsletter-container {
-  max-width: 860px;
-  margin: 0 auto;
-  display: flex;
-  gap: 40px;
-  flex-wrap: wrap;
-  justify-content: center; /* centraliza os retângulos */
-}
-
-/* Estilo dos retângulos */
-.news-box,
-.newsletter-box {
-  background-color: #f4f1d2;
-  padding: 30px 40px 30px 40px;
-  border-radius: 8px;
-  flex: 1 1 400px;
-  display: flex;
-  flex-direction: column;
-  justify-content: top; /* centraliza verticalmente */
-  align-items: center;     /* centraliza horizontalmente */
-  text-align: left;      /* centraliza texto */
-  gap: 20px;               /* espaçamento entre elementos */
-  min-height: 280px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-/* Títulos */
-.news-box h2,
-.newsletter-box h2 {
-  font-size: 24px;
-  color: #4f4f4f;
-  margin-bottom: 0;
-}
-
-/* Texto */
-.news-box p,
-.newsletter-box p {
-  font-size: 16px;
-  color: #4f4f4f;
-  margin: 0;
-}
-
-/* Botões laranja */
-.btn-box {
-  position: absolute;
-  background-color: #e87a00;
-  color: #fefcf0;
-  font-weight: bold;
-  padding: 8px 20px;
-  border-radius: 6px;
-  text-decoration: none;
-  margin-top: auto;
-  align-self: center;
-  bottom: 25px;
-}
-
-.btn-box:hover {
-  background-color: #cf6b00;
-  color: #fefcf0;
-}
-
-/* Formulário da Newsletter */
-.newsletter-form {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  width: 125%; /* ocupa toda a largura do retângulo */
-  align-items: center; /* centraliza os elementos do form */
-  margin-top: 15px;
-}
-
-.newsletter-form input[type="email"] {
-  padding: 10px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  font-size: 16px;
-  width: 80%; /* maior largura */
-  box-sizing: border-box;
-  margin-top: -27px;
-}
-
-.newsletter-form button {
-  padding: 10px 20px;
-  border-radius: 6px;
+/* --- Menu Hamburguer (Mobile) --- */
+.navbar-toggler {
   border: none;
-  background-color: #e87a00;
-  color: #fefcf0;
-  font-weight: bold;
+  background: none;
   cursor: pointer;
 }
 
-.newsletter-form button:hover {
-  background-color: #cf6b00;
+.navbar-toggler svg {
+  fill: #fefcf0;
 }
 
-/* Imagem full width */
-.fullwidth-image-section {
-  width: 100%;
-  margin: -10px 0 0 0;
-  padding: 0;
-}
-
-.fullwidth-image-section img {
-  width: 100%;       /* ocupa toda a largura da tela */
-  height: auto;      /* mantém a proporção */
-  display: block;    /* remove espaços brancos embaixo da imagem */
-}
-
-
-/* Rodapé */
-footer {
+/* --- Menu Lateral Offcanvas (Mobile) --- */
+.offcanvas {
   background-color: #488f58;
-  color: white;
-  text-align: center;
-  font-family: Arial, sans-serif;
 }
 
-/* Parte superior do rodapé */
-.footer-top {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: flex-start;
-  padding: 2rem;
-  gap: 2rem;
-}
-
-/* Logo */
-.footer-logo {
-  flex: 1 1 150px;
-  max-width: 150px;
-}
-
-.footer-logo img {
-  width: 75%;
-  height: auto;
-}
-
-/* Colunas de links */
-.footer-links {
-  display: flex;
-  flex: 2 1 400px;
-  gap: 2rem;
-  justify-content: flex-start;
-}
-
-.footer-column {
-  display: flex;
-  flex-direction: column;
-  text-align: left;
-}
-
-.footer-column h4 {
-  margin-bottom: 0.5rem;
-  font-size: 1rem;
-}
-
-.footer-column a {
-  color: white;
-  text-decoration: none;
-  margin-bottom: 0.3rem;
-  font-size: 0.9rem;
-}
-
-.footer-column a:hover {
-  text-decoration: underline;
-}
-
-/* Contato */
-.footer-contact {
-  flex: 1 1 200px;
-  text-align: left;
-}
-
-.footer-contact h4 {
-  margin-bottom: 0.5rem;
-  font-size: 1rem;
-}
-
-.footer-contact p {
-  margin: 0.3rem 0;
-  font-size: 0.9rem;
-}
-
-.footer-bottom {
+.offcanvas-header {
   background-color: #2c5836;
-  padding: 1rem 2rem;
-  font-size: 0.85rem;
-  position: relative; /* necessário para o posicionamento absoluto dos ícones */
 }
 
-/* Container dos ícones */
-.footer-social {
-  position: absolute;
-  right: 10rem;
-  top: 50%;
-  transform: translateY(-50%);
+.offcanvas-header .btn-close {
+  filter: invert(1);
+}
+
+.offcanvas-body .nav-link {
+  color: #fefcf0;
+  font-size: 1.2rem;
+  padding: 15px 15px;
+  margin-bottom: 8px;
+  border-radius: 4px;
+  text-align: left;
+  transition: background-color 0.2s;
+}
+
+.offcanvas-body .nav-link:hover {
+  background-color: #2c5836;
+  text-decoration: none;
+}
+
+/* --- Botão de Autenticação no Offcanvas --- */
+.btn-auth-offcanvas {
+  width: 100%;
+  border-radius: 8px !important;
+  text-align: center;
+  padding: 10px 15px !important;
+  font-size: 1.1rem;
+  height: auto !important;
+  margin-bottom: 10px;
+}
+
+/* --- Formulário de Pesquisa no Offcanvas --- */
+.offcanvas-search-form {
   display: flex;
-  gap: 0.5rem;
+  gap: 8px;
+  align-items: center;
 }
 
-/* Estilo das imagens dos ícones */
-.footer-social img {
-  width: 24px; /* tamanho do ícone */
-  height: 24px;
+.offcanvas-search-form .form-control {
+  flex-grow: 1;
+  border-radius: 6px;
+  padding: 8px 12px;
+}
+
+.offcanvas-search-form .offcanvas-search-btn {
+  width: 45px;
+  height: 45px;
+  padding: 0;
+  border-radius: 6px;
+  flex-shrink: 0;
 }
 
 
-/* Responsividade */
-@media (max-width: 768px) {
-  .footer-top {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
+/* ==========================================================================
+   3. COMPONENTES REUTILIZÁVEIS
+   ========================================================================== */
 
-  .footer-links, .footer-contact {
-    justify-content: center;
-    text-align: center;
-  }
-
-  .footer-column {
-    align-items: center;
-  }
+/* --- Botões Customizados (Laranja) --- */
+.btn-custom {
+  background-color: #e87a00;
+  color: #fefcf0;
+  border: none;
+  border-radius: 0;
+  padding: 10px 15px;
+  font-weight: normal;
+  height: 46px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
 }
 
+.btn-custom:hover {
+  background-color: #cf6b00;
+  color: #fefcf0;
+}
+
+/* --- Botão Voltar ao Topo --- */
 #back-to-top {
-  position: fixed;       /* Fixo na tela */
-  right: 2rem;           /* Distância da borda direita */
-  bottom: 2rem;          /* Distância da borda inferior */
-  z-index: 1000;         /* Acima de outros elementos */
-  border: none;          /* Sem borda */
-  background: none;      /* Sem fundo */
-  cursor: pointer;       /* Cursor de clique */
-  display: none;         /* Começa escondido */
-  padding: 0;            /* Remove padding */
+  position: fixed;
+  right: 2rem;
+  bottom: 2rem;
+  z-index: 1000;
+  border: none;
+  background: none;
+  cursor: pointer;
+  display: none;
+  padding: 0;
   transition: transform 0.2s;
 }
 
-/* Hover: dá leve efeito ao passar o mouse */
 #back-to-top:hover {
   transform: scale(1.1);
 }
 
-/* Ajusta tamanho do SVG dentro do botão */
 #back-to-top svg {
   width: 40px;
   height: 40px;
-  fill: #a8d08d; /* Cor do ícone */
+  fill: #a8d08d;
 }
 
-
-
-/* Modal geral */
+/* --- Modal de Autenticação --- */
 .auth-modal {
   display: none;
   position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background-color: rgba(0,0,0,0.6);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
   justify-content: center;
   align-items: center;
   z-index: 2000;
 }
 
-/* Conteúdo modal dividido */
 .split-modal {
   display: flex;
   width: 90%;
   max-width: 700px;
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
-/* Lado esquerdo: imagem */
 .modal-left {
   flex: 1;
-  background-color: #4a5a2a; /* verde musgo */
+  background-color: #2c5836;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -675,10 +259,9 @@ footer {
   object-fit: cover;
 }
 
-/* Lado direito: formulário */
 .modal-right {
   flex: 1;
-  background-color: #f5edd6; /* bege */
+  background-color: #f5edd6;
   padding: 30px 25px;
   display: flex;
   flex-direction: column;
@@ -687,17 +270,16 @@ footer {
   position: relative;
 }
 
-/* Close button */
 .close-modal {
   position: absolute;
-  top: 10px; right: 15px;
+  top: 10px;
+  right: 15px;
   font-size: 28px;
   font-weight: bold;
   cursor: pointer;
-  color: #2c5836;
+  color: #e87a00;
 }
 
-/* Abas */
 .auth-tabs {
   display: flex;
   justify-content: space-around;
@@ -717,11 +299,10 @@ footer {
 }
 
 .tab-btn.active {
-  background-color: #488f58;
+  background-color: #2c5836;
   color: #fefcf0;
 }
 
-/* Formulários */
 .modal-form {
   display: none;
   flex-direction: column;
@@ -756,29 +337,26 @@ footer {
   background-color: #cf6b00;
 }
 
-/* Checkbox e link */
 .form-extra {
   display: flex;
-  justify-content: space-between; /* mantém o link à direita */
+  justify-content: space-between;
   align-items: center;
   font-size: 14px;
-  gap: 10px; /* espaço mínimo entre checkbox+texto e link */
-  flex-wrap: nowrap; /* evita quebra de linha */
+  gap: 10px;
+  flex-wrap: nowrap;
 }
 
 .form-extra label {
   display: flex;
-  align-items: center; /* alinha checkbox e texto verticalmente */
-  gap: 5px; /* espaço entre checkbox e texto */
-  white-space: nowrap; /* evita quebra de linha do texto */
+  align-items: center;
+  gap: 5px;
+  white-space: nowrap;
   cursor: pointer;
 }
 
 .form-extra a {
-  white-space: nowrap; /* impede quebra do "Recuperar senha" */
+  white-space: nowrap;
 }
-
-
 
 .form-extra input[type="checkbox"] {
   margin-right: 5px;
@@ -793,15 +371,700 @@ footer {
   text-decoration: underline;
 }
 
-/* Responsividade */
+
+/* ==========================================================================
+   4. SEÇÕES DA PÁGINA
+   ========================================================================== */
+
+/* --- Banner (Carrossel) --- */
+.carousel-caption {
+  bottom: auto;
+  top: 150px;
+  left: 200px;
+  text-align: left;
+}
+
+.carousel-caption h3,
+.carousel-caption p {
+  text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.7);
+}
+
+.btn-banner {
+  background-color: #e87a00;
+  color: #fefcf0;
+  border: none;
+  border-radius: 6px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
+  transition: all 0.2s ease-out;
+}
+
+.btn-banner:hover {
+  background-color: #cf6b00;
+  color: #fefcf0;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* --- Container de Conteúdo Principal --- */
+.content-wrapper {
+  max-width: 1350px;
+  margin: 50px auto;
+  padding: 0 50px;
+  box-sizing: border-box;
+  margin-bottom: -10px;
+}
+
+.content-wrapper h1 {
+  font-size: 29px;
+    font-weight: bold !important;
+
+}
+
+/* --- Seção Missão, Objetivos e Benefícios --- */
+.eco-box {
+  background-color: #f4f1d2;
+  padding: 10px 0;
+  width: 100%;
+}
+
+.eco-box-content {
+  max-width: 1350px;
+  margin: 0 auto;
+  padding: 0 50px;
+}
+
+.eco-block {
+  margin-bottom: 40px;
+}
+
+.eco-block h2 {
+  color: #4f4f4f;
+  font-size: 22px;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+.eco-list {
+  list-style-type: disc;
+  padding-left: 30px;
+}
+
+.eco-list li {
+  margin-bottom: 10px;
+  font-size: 16px;
+  color: #4f4f4f;
+}
+
+/* --- Seção de Campanhas --- */
+.campaigns-section {
+  margin: 60px auto;
+  max-width: 1300px;
+  padding: 0 20px;
+}
+
+.campaign-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  background: #fefcf0;
+}
+
+.campaign-image {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.campaign-image img {
+  width: 100%;
+  border-radius: 8px 8px 0 0;
+  display: block;
+}
+
+.campaign-title {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #2c5836;
+  color: #fefcf0;
+  padding: 8px 16px;
+  font-weight: bold;
+  border-radius: 6px 6px 0 0;
+  font-size: 1.2rem;
+  white-space: nowrap;
+  display: inline-block;
+}
+
+.campaign-description {
+  background-color: #f4f1d2;
+  width: 100%;
+  padding: 20px;
+  border-radius: 0 0 8px 8px;
+  position: relative;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 180px;
+}
+
+.btn-campaign {
+  position: absolute;
+  background-color: #e87a00;
+  color: #fefcf0;
+  font-weight: bold;
+  padding: 8px 20px;
+  border-radius: 6px;
+  text-decoration: none;
+  margin-top: auto;
+  align-self: center;
+  bottom: 20px;
+}
+
+.btn-campaign:hover {
+  background-color: #cf6900;
+  color: #fefcf0;
+}
+
+/* --- Seção Ranking Semanal --- */
+.ranking-section {
+  width: 100%;
+  background-color: #488f58;
+  padding: 40px 0 0;
+  margin-top: 60px;
+}
+
+.ranking-container {
+  max-width: 1350px;
+  margin: 0 auto;
+  padding: 0 100px;
+  display: flex;
+  align-items: center;
+  gap: 50px;
+}
+
+.ranking-image-wrapper {
+  flex: 0 1 40%;
+  min-width: 0;
+}
+
+.ranking-image-wrapper img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  display: block;
+  filter: drop-shadow(1px 2px 4px rgba(0, 0, 0, 0.4));
+}
+
+.ranking-content-wrapper {
+  flex: 1;
+  color: #fefcf0;
+  text-align: left;
+}
+
+.ranking-content-wrapper h2 {
+  font-size: 2.2rem;
+  margin-bottom: 30px;
+}
+
+.ranking-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.ranking-list li {
+  display: flex;
+  align-items: center;
+  background-color: #f4f1d2;
+  padding: 15px 20px;
+  border-radius: 12px;
+  border-left: 5px solid transparent;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+  cursor: pointer;
+}
+
+.ranking-list li:hover {
+  transform: scale(1.02);
+  background-color: #e87a00;
+}
+
+.ranking-list li.rank-1 {
+  border-left-color: #FFD700;
+  /* Ouro */
+}
+
+.ranking-list li.rank-2 {
+  border-left-color: #C0C0C0;
+  /* Prata */
+}
+
+.ranking-list li.rank-3 {
+  border-left-color: #CD7F32;
+  /* Bronze */
+}
+
+.rank-position {
+  font-weight: bold;
+  font-size: 1.2rem;
+  width: 80px;
+  color: #4f4f4f;
+  transition: color 0.2s ease;
+}
+
+.rank-position svg {
+  flex-shrink: 0;
+  transition: fill 0.2s ease;
+}
+
+.rank-name {
+  flex-grow: 1;
+  font-size: 1.1rem;
+  color: #4f4f4f;
+  transition: color 0.2s ease;
+}
+
+.rank-score {
+  font-weight: bold;
+  font-size: 1.3rem;
+  color: #4f4f4f;
+  text-align: right;
+  min-width: 110px;
+  transition: color 0.2s ease;
+}
+
+.ranking-list li:hover .rank-position,
+.ranking-list li:hover .rank-name,
+.ranking-list li:hover .rank-score {
+  color: #fefcf0;
+}
+
+.ranking-list li:hover .rank-position svg {
+  fill: #fefcf0 !important;
+}
+
+.collective-highlights {
+  margin-top: 40px;
+}
+
+.collective-highlights h3 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+}
+
+.collective-highlights p {
+  margin: 5px 0;
+  font-size: 1.1rem;
+}
+
+/* --- Seções de Imagem Full-Width --- */
+.fullwidth-image-section2 {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.fullwidth-image-section2 img {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin-bottom: 50px;
+}
+
+.fullwidth-image-section {
+  width: 100%;
+  margin: 30px 0 0 0;
+  padding: 0;
+}
+
+.fullwidth-image-section img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* --- Seção Notícias e Newsletter --- */
+.news-newsletter-section {
+  width: 100%;
+  padding: 0 20px;
+  background-color: #fefcf0;
+  z-index: 2;
+  position: relative;
+}
+
+.news-newsletter-container {
+  max-width: 987px;
+  margin: 0 auto;
+  margin-top: 75px;
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.news-box,
+.newsletter-box {
+  background-color: #f4f1d2;
+  padding: 30px 40px 30px 40px;
+  border-radius: 8px;
+  flex: 1 1 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: top;
+  align-items: center;
+  text-align: left;
+  gap: 20px;
+  min-height: 280px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.news-box h2,
+.newsletter-box h2 {
+  font-size: 24px;
+  color: #4f4f4f;
+  margin-bottom: 0;
+}
+
+.news-box p,
+.newsletter-box p {
+  font-size: 16px;
+  color: #4f4f4f;
+  margin: 0;
+}
+
+.btn-box {
+  position: absolute;
+  background-color: #e87a00;
+  color: #fefcf0;
+  font-weight: bold;
+  padding: 8px 20px;
+  border-radius: 6px;
+  text-decoration: none;
+  margin-top: auto;
+  align-self: center;
+  bottom: 25px;
+}
+
+.btn-box:hover {
+  background-color: #cf6b00;
+  color: #fefcf0;
+}
+
+.newsletter-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 125%;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.newsletter-form input[type="email"] {
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  width: 80%;
+  box-sizing: border-box;
+  margin-top: -27px;
+}
+
+.newsletter-form button {
+  padding: 10px 20px;
+  border-radius: 6px;
+  border: none;
+  background-color: #e87a00;
+  color: #fefcf0;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.newsletter-form button:hover {
+  background-color: #cf6b00;
+}
+
+
+/* ==========================================================================
+   5. RODAPÉ
+   ========================================================================== */
+
+footer {
+  background-color: #488f58;
+  color: white;
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+/* --- Parte Superior do Rodapé --- */
+.footer-top {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 2rem;
+  gap: 2rem;
+}
+
+.footer-logo {
+  flex: 1 1 150px;
+  max-width: 150px;
+}
+
+.footer-logo img {
+  width: 75%;
+  height: auto;
+}
+
+.footer-links {
+  display: flex;
+  flex: 2 1 400px;
+  gap: 2rem;
+  justify-content: flex-start;
+}
+
+.footer-column {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.footer-column h4 {
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
+
+.footer-column a {
+  color: white;
+  text-decoration: none;
+  margin-bottom: 0.3rem;
+  font-size: 0.9rem;
+}
+
+.footer-column a:hover {
+  text-decoration: underline;
+}
+
+.footer-contact {
+  flex: 1 1 200px;
+  text-align: left;
+}
+
+.footer-contact h4 {
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
+
+.footer-contact p {
+  margin: 0.3rem 0;
+  font-size: 0.9rem;
+}
+
+/* --- Parte Inferior do Rodapé --- */
+.footer-bottom {
+  background-color: #2c5836;
+  padding: 1rem 2rem;
+  font-size: 0.85rem;
+  position: relative;
+}
+
+/* ==========================================================================
+   6. RESPONSIVIDADE (MEDIA QUERIES)
+   ========================================================================== */
+
+/* --- Telas médias e pequenas (Tablets e abaixo) --- */
+@media (max-width: 991.98px) {
+
+  /* Ajusta o padding do botão de autenticação no header */
+  .btn-custom.btn-auth {
+    padding: 10px 10px;
+  }
+
+  /* Empilha a seção de Ranking */
+  .ranking-container {
+    flex-direction: column;
+    gap: 25px;
+  }
+
+  .ranking-content-wrapper {
+    text-align: left;
+    margin-top: 0;
+  }
+}
+
+/* --- Telas pequenas (Celulares) --- */
 @media (max-width: 768px) {
+
+  /* Ajusta o layout do rodapé */
+  .footer-top {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-links,
+  .footer-contact {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .footer-column {
+    align-items: center;
+  }
+
+  /* Ajusta o layout do modal */
   .split-modal {
     flex-direction: column;
   }
-  .modal-left, .modal-right {
+
+  .modal-left,
+  .modal-right {
     width: 100%;
   }
+
   .modal-left {
     height: 200px;
   }
+
+  /* Ajusta o banner/carrossel */
+  .carousel-item {
+    height: 250px;
+  }
+
+  .carousel-item img {
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .carousel-caption {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    text-align: center;
+    bottom: auto;
+    right: auto;
+  }
+
+  .carousel-caption h3 {
+    font-size: 1.6rem;
+  }
+
+  .carousel-caption p {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
 }
+
+
+/* --- Telas grandes (Desktops) --- */
+@media (min-width: 992px) {
+
+  /* Mostra a caixa de pesquisa no desktop */
+  .search-box {
+    display: flex !important;
+  }
+
+  /* Alinha os links da barra secundária na horizontal */
+  .secondary-bar .navbar-nav {
+    flex-direction: row;
+    gap: 20px;
+  }
+
+  .secondary-bar .navbar-nav button {
+    display: inline-block;
+    width: auto;
+    margin: 0;
+    text-align: center;
+  }
+}
+
+/* --- Seção de Parceiros e Apoiadores --- */
+.partners-section {
+    margin: 60px auto;
+    padding: 20px 0;
+    text-align: center;
+    overflow: hidden; /* Garante que as logos não "vazem" nas laterais */
+}
+
+.partners-section h2 {
+    color: #4f4f4f;
+    font-size: 24px;
+    margin-bottom: 40px;
+    font-weight: bold;
+}
+
+.partner-logo {
+    padding: 0 15px; /* Adiciona um espaçamento entre as logos */
+    box-sizing: border-box;
+}
+
+.partner-logo img {
+    max-height: 70px;
+    width: auto;
+    filter: grayscale(100%);
+    opacity: 0.7;
+    transition: all 0.3s ease;
+}
+
+.partner-logo:hover img {
+    filter: grayscale(0%);
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+/* --- NOVO: Regras para o Carrossel de Múltiplos Itens --- */
+#partnersCarousel .carousel-inner {
+    display: flex;
+}
+
+#partnersCarousel .carousel-item {
+    display: block;
+    margin-right: 0;
+    /* Define a largura para mostrar 7 logos em telas grandes */
+    flex: 0 0 calc(100% / 7);
+}
+
+/* --- Estilizando as setas do carrossel --- */
+#partnersCarousel .carousel-control-prev,
+#partnersCarousel .carousel-control-next {
+    width: 5%;
+}
+
+#partnersCarousel .carousel-control-prev-icon,
+#partnersCarousel .carousel-control-next-icon {
+    background-color: #2c5836;
+    border-radius: 50%;
+    padding: 20px;
+    background-size: 50% 50%;
+}
+
+#partnersCarousel .carousel-control-prev-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23fefcf0'%3e%3cpath d='M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z'/%3e%3c/svg%3e");
+}
+
+#partnersCarousel .carousel-control-next-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23fefcf0'%3e%3cpath d='M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+}
+
+/* --- NOVO: Responsividade do Carrossel --- */
+/* Telas de Tablet - Mostra 5 logos */
+@media (max-width: 991.98px) {
+    #partnersCarousel .carousel-item {
+        flex: 0 0 calc(100% / 5);
+    }
+}
+
+/* Telas de Celular - Mostra 3 logos */
+@media (max-width: 767.98px) {
+    #partnersCarousel .carousel-item {
+        flex: 0 0 calc(100% / 3);
+    }
+}
+
